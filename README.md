@@ -1,7 +1,11 @@
 # CTYAssignments
-cty chapter 3 intro to java
 
+## link to course
+link [https://mycourses.cty.jhu.edu/course/view.php?id=3492]
 
+###cty chapter 3 intro to java
+
+## how to add files from intelliJ to this repo
 Add files to VCS﻿
 Open the Commit tool window Alt+0
 
