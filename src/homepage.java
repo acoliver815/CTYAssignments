@@ -1,9 +1,9 @@
 import java.text.DecimalFormat;
 import java.util.Scanner;
+
 public class homepage {
     public static void main(String[] args) {
-
-        Scanner myObj = new Scanner(System.in);
+        Scanner myObj = new Scanner(System.in).useDelimiter("\n");
         System.out.println("      *******                  ******* ");
         System.out.println("     ***^^***                  ********");
         System.out.println("     ***  ***                  **    ** ");
@@ -28,16 +28,17 @@ public class homepage {
         int menu_4_gt10 = 0;
         char menu_exit = 'N';
         double receipt = 0.0;
-        String item_list = "";
+        String item_list = "\n";
         DecimalFormat decFormat = new DecimalFormat("$#,###.00");
         while (menu_exit == 'N') {
-            System.out.println("If you need to purchase a game, please enter 1. \nIf you want to purchase a game console, enter 2. \nIf you need a repair consultant, please enter 3. \nIf you want various types of merchandise, type 4.");
-            System.out.println("If you are done selecting items please enter 5");
+            System.out.println("If you need to purchase a game, please enter 1. \nIf you want to purchase a game console, please enter 2. \nIf you need a repair consultant, please enter 3. \nIf you want various types of merchandise, please enter4.");
+            System.out.println("If you are done selecting items, please enter 5");
         /*Identify if the first and second menu items have been selected, If so, calculate and apply a multi-product/service discount of 10%. Otherwise, no discount is applied.
 Identify if the user has requested more than 10 units or service hours for both menu selections. If so, a 5% discount will be applied. Otherwise, no discount is applied.
 */
-            System.out.println("If you purchase two different items, you will receive 10% off");
-            System.out.println("If you purchase more than 10 of two different menu items, you will receive an additional 5% off");
+            System.out.println("SALES!!");
+            System.out.println("If you purchase a game and game console ( Menu items 1 and 2), you will receive 10% off");
+            System.out.println("If you purchase more than 10 of two different menu items/services, you will receive an additional 5% off");
 
             int type = myObj.nextInt();
             if (type == 1) {
@@ -55,7 +56,7 @@ Identify if the user has requested more than 10 units or service hours for both 
                     System.out.println(gresp2);
                     menu_1_gt10++;
                     menu_1_picked++;
-                    item_list = item_list + gPQ + " of " + game+" ";
+                    item_list = item_list + gPQ + " of " + game+"\n";
                     receipt = receipt + gprice;
 
                 } else if (gPQ < stock_count && gPQ > 0) {
@@ -64,7 +65,7 @@ Identify if the user has requested more than 10 units or service hours for both 
                      */
                     System.out.println(gresp2);
                     menu_1_picked++;
-                    item_list = item_list + gPQ + " of " + game+" ";
+                    item_list = item_list + gPQ + " of " + game+"\n";
                     receipt = receipt + gprice;
 
 
@@ -94,7 +95,7 @@ Identify if the user has requested more than 10 units or service hours for both 
                      */
                     System.out.println(cresp2);
                     menu_2_picked++;
-                    item_list = item_list + cPQ + " of " + console+" ";
+                    item_list = item_list + cPQ + " of " + console+"\n";
                     receipt = receipt + cprice;
 
 
@@ -120,20 +121,20 @@ Identify if the user has requested more than 10 units or service hours for both 
                     System.out.println(help1);
                     menu_3_gt10++;
                     menu_3_picked++;
-                    item_list = item_list + "renovation of game"+" ";
+                    item_list = item_list + "renovation of game"+"\n";
                     receipt = receipt + hgame;
 
                 } else if (help == 2) {
                     System.out.println(help2);
                     menu_3_picked++;
                     menu_3_gt10++;
-                    item_list = item_list + "renovation of console"+" ";
+                    item_list = item_list + "renovation of console"+"\n";
                     receipt = receipt + hconsole;
 
                 } else if (help == 3) {
                     System.out.println(help3);
                     menu_3_picked++;
-                    item_list = item_list + "refund/fixing of merchandise"+" ";
+                    item_list = item_list + "refund/fixing of merchandise"+"\n";
                     receipt = receipt + hmerch;
 
 
@@ -154,7 +155,7 @@ Identify if the user has requested more than 10 units or service hours for both 
                 } else if (mPQ >= 10) {
                     System.out.println(mresp2);
                     menu_4_gt10++;
-                    item_list = item_list + mPQ + " of " + merch+" ";
+                    item_list = item_list + mPQ + " of " + merch+"\n";
                     receipt = receipt + mprice;
 
                 } else if (mPQ <= stock_count && mPQ > 0) {
@@ -163,7 +164,7 @@ Identify if the user has requested more than 10 units or service hours for both 
                      */
                     System.out.println(mresp2);
                     menu_4_gt10++;
-                    item_list = item_list + mPQ + " of " + merch+" ";
+                    item_list = item_list + mPQ + " of " + merch+"\n";
                     receipt = receipt + mprice;
 
                 }
@@ -189,7 +190,7 @@ Identify if the user has requested more than 10 units or service hours for both 
         System.out.println("Would you like to confirm your purchase? (Y/N)");
         String confirm = myObj.next();
         if (confirm.equals("y")  || confirm.equals("Y")) {
-            System.out.println("Your final receipt is $" + receipt + " for " + item_list + ". Congratulations on your purchase!");
+            System.out.println("Your final receipt is " + decFormat.format(receipt) + " for " + item_list + ". Congratulations on your purchase!");
 
         } else {
             System.out.println("We are sorry for you not purchasing these items. We hope you will visit us again!");
